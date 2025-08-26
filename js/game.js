@@ -30,9 +30,9 @@ var plinkoSettings = {
         pinColor:"#fff",
         prizeBorderColor:"#fff",
 		prizes:[
-			{value:'Sachê', text:"5\n0", fontSize:20, lineHeight:18, x:0, y:-3, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:15},
-			{value:'Bolsa', text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
-			{value:'Mascara 300', text:"2\n5\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:10},
+			{value:1, text:'Sachê', fontSize:20, lineHeight:18, x:0, y:-3, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:15},
+			{value:2, text:'Bolsa', fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
+			{value:3, text:'Mascara 300', fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:10},
 			{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
 			{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:5},
 			{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
@@ -52,8 +52,8 @@ var plinkoBonusSettings = {
 	pinColor:"#fff",
 	prizeBorderColor:"#fff",
 	prizes:[
-		{value:'Sachê', text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15},
-		{value:'0', text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:20},
+		{value:1, text:'Sachê', fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15},
+		{value:2, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:20},
 		{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15},
 		{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:20},
 		{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15}
