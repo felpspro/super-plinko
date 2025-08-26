@@ -12,7 +12,7 @@ var gameSettings ={
     enableFixedResult:false, //option to have fixed result by API, enabling this will disable 2D physics engine
     enablePercentage:false, //option to have result base on percentage, enabling this will disable 2D physics engine
     gamePlayType:true, //game play type; true for chance, false for bet
-    totalChance:7, //total chance
+    totalChance:3, //total chance
     betPoint:500, //start bet amount
     minBet:10, //minimum bet amount
     maxBet:500, //max bet amount
@@ -25,14 +25,14 @@ var plinkoSettings = {
         row:10,
         size:48,
         ballSize:19,
-        ballColor:"#FF7F00",
+        ballColor:"#ff0000ff",
         pinSize:5,
         pinColor:"#fff",
         prizeBorderColor:"#fff",
 		prizes:[
-			{value:50, text:"5\n0", fontSize:20, lineHeight:18, x:0, y:-3, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:15},
-			{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
-			{value:250, text:"2\n5\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:10},
+			{value:'Sachê', text:"5\n0", fontSize:20, lineHeight:18, x:0, y:-3, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:15},
+			{value:'Bolsa', text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
+			{value:'Mascara 300', text:"2\n5\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:10},
 			{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
 			{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:5},
 			{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
@@ -52,8 +52,8 @@ var plinkoBonusSettings = {
 	pinColor:"#fff",
 	prizeBorderColor:"#fff",
 	prizes:[
-		{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15},
-		{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:20},
+		{value:'Sachê', text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15},
+		{value:'0', text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:20},
 		{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15},
 		{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:20},
 		{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15}
@@ -72,17 +72,17 @@ var textStrings = {
 	bet:"$[NUMBER]",
 	chance:"x [NUMBER]",
 	minBet:"PLACE BET TO BEGIN",
-	won:"YOU WON $[NUMBER]",
-	lose:"YOU DIDN't WIN",
-	playing:'PLAYING...',
-	bonusRound:'BONUS ROUND',
+	won:"VOCÊ GANHOU $[NUMBER]",
+	lose:"VOCÊ NÃO GANHOU",
+	playing:'JOGANDO...',
+	bonusRound:'RODADA BONUS',
 	gameOver:'GAME OVER',
 	collectCoin:"+[NUMBER]",
-	exitTitle:"EXIT GAME",
-	exitMessage:"ARE YOU SURE YOU WANT\nTO QUIT GAME?",
-	share:"SHARE YOUR SCORE",
+	exitTitle:"SAIR DO JOGO",
+	exitMessage:"TEM CERTEZA QUE QUER \nSAIR DO JOGO?",
+	share:"COMPARTILHAR SEU SCORE",
 	resultTitle:"GAME OVER",
-	resultDesc:"YOU WON",
+	resultDesc:"VOCÊ GANHOU!",
 	resultScore:"$[NUMBER]"
 }
 
@@ -90,8 +90,8 @@ var textStrings = {
 var shareSettings = {
 	enable:true,
 	options:['facebook','twitter','whatsapp','telegram','reddit','linkedin'],
-	shareTitle:'Highscore on Super Plinko Game at $[SCORE].',
-	shareText:'$[SCORE] is mine new highscore on Super Plinko Game! Try it now!',
+	shareTitle:'Super Plinko Felps $[SCORE].',
+	shareText:'$[SCORE] é meu novo recorde no jogo Super Plinko Felps! Experimente agora!',
 	customScore:true, //share a custom score to Facebook, it use customize share.php (Facebook and PHP only)
 	gtag:true //Google Tag
 }
