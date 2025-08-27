@@ -2,7 +2,7 @@
   "name": "Felps Super Plinko",
   "short_name": "Felps Jogo",
   "display": "standalone",
-  "start_url": "/",
+  "start_url": "/index.html",
   "scope": "/",
   "background_color": "#3A125E",
   "theme_color": "#3A125E",
