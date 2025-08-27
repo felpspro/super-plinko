@@ -1,32 +1,18 @@
-const CACHE_NAME = "jogo-cache-v1";
+// This is the "Offline copy of pages" service worker
 
-const URLS_TO_CACHE = [
-  "./",
-  "./index.html",
-  "assets/style.css",
-  "assets/script.js",
-  "assets/img1.png",
-  "assets/img2.png",
-  "assets/icon-192.png",
-  "assets/icon-512.png",
-  "assets/icons/192x192.png",
-  "assets/icons/512x512.png",
-  "assets/icons/apple-touch-icon.png",
-  "assets/icons/favicon-16x16.png",
-  "assets/icons/favicon-32x32.png",
-  "assets/icons/favicon.ico",
-  "assets/icons/favicon.ico",
-  // adicione aqui todos os arquivos do jogo
-];
+const CACHE = "pwabuilder-offline";
 
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(URLS_TO_CACHE))
-  );
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
 
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
-  );
-});
+workbox.routing.registerRoute(
+  new RegExp('/*'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: CACHE
+  })
+);
