@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        <link rel="manifest" href="manifest.json">
     	<?php
         $title = isset($_GET['title']) ? $_GET['title'] : '';
         $desc = isset($_GET['desc']) ? $_GET['desc'] : '';
@@ -17,13 +16,6 @@
     <body>
         <script>
             window.location.href = "<?php echo $url;?>";
-        </script>
-        <script>
-        if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-            .then(() => console.log('Service Worker registrado'))
-            .catch(err => console.error('Erro SW:', err));
-        }
         </script>
     </body>
 </html>

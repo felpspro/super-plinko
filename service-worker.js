@@ -8,7 +8,14 @@ const URLS_TO_CACHE = [
   "assets/img1.png",
   "assets/img2.png",
   "assets/icon-192.png",
-  "assets/icon-512.png"
+  "assets/icon-512.png",
+  "assets/icons/192x192.png",
+  "assets/icons/512x512.png",
+  "assets/icons/apple-touch-icon.png",
+  "assets/icons/favicon-16x16.png",
+  "assets/icons/favicon-32x32.png",
+  "assets/icons/favicon.ico",
+  "assets/icons/favicon.ico",
   // adicione aqui todos os arquivos do jogo
 ];
 
