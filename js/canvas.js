@@ -209,7 +209,7 @@ function buildGameCanvas(){
 	resultDescTxt.y = canvasH/100 * 40;
 
 	resultScoreTxt = new createjs.Text();
-	resultScoreTxt.font = "80px azonixregular";
+	resultScoreTxt.font = "35px azonixregular";
 	resultScoreTxt.color = '#fff';
 	resultScoreTxt.textAlign = "center";
 	resultScoreTxt.textBaseline='alphabetic';
@@ -244,7 +244,7 @@ function buildGameCanvas(){
             pos.x += pos.spaceX;
         }
         buttonShare.y = (buttonShare.image.naturalHeight/2) + 10;
-        shareContainer.addChild(buttonShare);
+        shareContainer.addChild();
     }
 
     if ( typeof toggleScoreboardSave == 'function' ) { 

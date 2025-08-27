@@ -16,7 +16,7 @@ var gameSettings ={
     betPoint:500, //start bet amount
     minBet:10, //minimum bet amount
     maxBet:500, //max bet amount
-	coin:true, //enable collect coin
+	coin:false, //enable collect coin
 	coinPercent:20 //total coins for collect
 };
 
@@ -30,15 +30,24 @@ var plinkoSettings = {
         pinColor:"#fff",
         prizeBorderColor:"#fff",
 		prizes:[
-			{value:1, text:'Sachê', fontSize:20, lineHeight:18, x:0, y:-3, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:15},
-			{value:2, text:'Bolsa', fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
-			{value:3, text:'Mascara 300', fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:10},
-			{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
-			{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:5},
-			{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20},
-			{value:250, text:"2\n5\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:10},
-			{value:0, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:20, bonus:true},
-			{value:50, text:"5\n0", fontSize:20, lineHeight:18, x:0, y:-3, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:15},
+			/* {value:1, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:2, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:3, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:4, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:5, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:6, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:7, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:8, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:9, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true}, */
+			{value:1, text:'Item 1', fontSize:15, lineHeight:18, x:0, y:-3, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0},
+			{value:2, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:3, text:'Item 3', fontSize:15, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0},
+			{value:4, text:"Item 4", fontSize:15, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0},
+			{value:5, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:6, text:"Item 6", fontSize:15, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0},
+			{value:7, text:"Item 7", fontSize:15, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0},
+			{value:8, image:'assets/item_prize_bonus.png', x:0, y:0, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0, bonus:true},
+			{value:9, text:"Item 9", fontSize:15, lineHeight:18, x:0, y:-3, color:"#fff", bgColor:"#7700B0", bgWinColor:"#A600F9", percent:0},
 	]
 };
 
@@ -52,11 +61,12 @@ var plinkoBonusSettings = {
 	pinColor:"#fff",
 	prizeBorderColor:"#fff",
 	prizes:[
-		{value:1, text:'Sachê', fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15},
-		{value:2, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:20},
-		{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15},
-		{value:0, text:"0", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:20},
-		{value:500, text:"5\n0\n0", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:15}
+		// {value:1, image:'assets/item_prize_bonus.png', fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:0},
+		{value:1, text:"s-2", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:0},
+		{value:2, text:"s-2", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:0},
+		{value:3, text:"s-3", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:0},
+		{value:4, text:"s-4", fontSize:20, lineHeight:18, x:0, y:5, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:0},
+		{value:5, text:"s-5", fontSize:20, lineHeight:18, x:0, y:-8, color:"#fff", bgColor:"#ea841f", bgWinColor:"#efad29", percent:0}
 ]
 };
 
@@ -68,21 +78,21 @@ var coinSettings = [
 
 //game text display
 var textStrings = {
-	credit:"$[NUMBER]",
+	credit:"[NUMBER]",
 	bet:"$[NUMBER]",
 	chance:"x [NUMBER]",
 	minBet:"PLACE BET TO BEGIN",
-	won:"VOCÊ GANHOU $[NUMBER]",
+	won:"$[NUMBER]",
 	lose:"VOCÊ NÃO GANHOU",
 	playing:'JOGANDO...',
 	bonusRound:'RODADA BONUS',
-	gameOver:'GAME OVER',
+	gameOver:'FIM!',
 	collectCoin:"+[NUMBER]",
 	exitTitle:"SAIR DO JOGO",
 	exitMessage:"TEM CERTEZA QUE QUER \nSAIR DO JOGO?",
-	share:"COMPARTILHAR SEU SCORE",
-	resultTitle:"GAME OVER",
-	resultDesc:"VOCÊ GANHOU!",
+	share:"",
+	resultTitle:"RESULTADO",
+	resultDesc:"VOCÊ GANHOU:",
 	resultScore:"$[NUMBER]"
 }
 
@@ -106,6 +116,8 @@ const playerData = {chance:0, score:0, point:0, bet:0};
 const gameData = {sideH:7, bottomH:20, paused:true, dropCon:false, ballShape:null, moveArray:[], moveBonusArray:[], finalMoveArray:[], coinArray:[], fixedResult:-1, fixedBonusResult:-1, bonusRound:false};
 const betData = {interval:null, timer:0, timerMax:300, timerMin:10, betpoint:0, betNumber:0, betNumberPlus:0};
 const tweenData = {score:0, scoreTarget:0, resultScore:0};
+
+let bonusTextSelected = null;
 
 /*!
  * 
@@ -334,9 +346,22 @@ function goPage(page){
 			playSound('soundResult');
 
 			tweenData.resultScore = 0;
-			TweenMax.to(tweenData, 1, {resultScore:playerData.score, overwrite:true, onUpdate:function(){
+
+			const item = playerData.score;
+			const $item = plinkoSettings.prizes.find(t => t.value == item) || {};
+			
+			if(bonusTextSelected!=null){
+				resultScoreTxt.text = textStrings.resultScore.replace('$[NUMBER]', addCommas(bonusTextSelected));
+				bonusTextSelected = null;
+			}else{
+				resultScoreTxt.text = textStrings.resultScore.replace('$[NUMBER]', addCommas($item.text));
+				bonusTextSelected = null;
+			}
+
+			// 
+			/* TweenMax.to(tweenData, 1, {resultScore:playerData.score, overwrite:true, onUpdate:function(){
 				resultScoreTxt.text = textStrings.resultScore.replace('[NUMBER]', addCommas(Math.round(tweenData.resultScore)));
-			}});
+			}}); */
 
 			saveGame(playerData.score);
 		break;
@@ -1638,7 +1663,16 @@ function checkWinBonusPoint(){
 		gameData.winPoint = plinkoBonusSettings.prizes[gameData.resultIndex].value;		
 		if(gameData.winPoint > 0){
 			//win
-			toggleGameStat(textStrings.won.replace('[NUMBER]', addCommas(Math.floor(gameData.winPoint))));
+			const item = gameData.winPoint;
+			const $item = plinkoBonusSettings.prizes.find(t => t.value == item) || {};
+			// 
+			// TweenMax.to(playerData, 1, {point:playerData.score, overwrite:true, onUpdate:updateStat});
+			// 
+			toggleGameStat(textStrings.won.replace('$[NUMBER]', addCommas($item.text)));
+			resultScoreTxt.text = textStrings.resultScore.replace('$[NUMBER]', addCommas($item.text));
+			bonusTextSelected = $item.text;
+
+			// toggleGameStat(textStrings.won.replace('[NUMBER]', addCommas(Math.floor(gameData.winPoint))));
 			playerData.score += gameData.winPoint;
 			TweenMax.to(playerData, 1, {point:playerData.score, overwrite:true, onUpdate:updateStat});
 			playSound('soundWin');
@@ -1843,8 +1877,11 @@ function updateBetNumber(){
  */
 function updateStat(){
 	if(gameSettings.gamePlayType){
+		const item = playerData.point;
+		const $item = plinkoSettings.prizes.find(t => t.value == item) || {};
+		// 
 		chanceTxt.text = textStrings.chance.replace('[NUMBER]', playerData.chance);
-		dollarTxt.text = textStrings.credit.replace('[NUMBER]', addCommas(Math.floor(playerData.point)));
+		dollarTxt.text = textStrings.resultScore.replace('$[NUMBER]', addCommas($item?.text || ''));
 	}else{
 		dollarTxt.text = textStrings.credit.replace('[NUMBER]', addCommas(Math.floor(playerData.point)));
 		betTxt.text = textStrings.bet.replace('[NUMBER]', addCommas(Math.floor(playerData.bet)));	
