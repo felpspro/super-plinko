@@ -1,14 +1,18 @@
 const CACHE_NAME = "felps-plinko-v1";
 
-// Coloque aqui TODOS os arquivos que precisam estar disponíveis offline
 const FILES_TO_CACHE = [
+  // Raiz
   "/",
   "/index.html",
   "/share.php",
+  "/icon.ico",
+  "/share.jpg",
 
   // CSS
   "/css/main.css",
   "/css/normalize.css",
+  "/css/fonts/azonix-webfont.woff",
+  "/css/fonts/azonix-webfont.woff2",
 
   // JS principais
   "/js/main.js",
@@ -17,7 +21,9 @@ const FILES_TO_CACHE = [
   "/js/loader.js",
   "/js/sound.js",
   "/js/mobile.js",
+  "/js/p2.js",
   "/js/plugins.js",
+  "/js/canvas.js",
 
   // Vendor
   "/js/vendor/jquery.min.js",
@@ -25,25 +31,26 @@ const FILES_TO_CACHE = [
   "/js/vendor/TweenMax.min.js",
   "/js/vendor/mobile-detect.js",
   "/js/vendor/p2.min.js",
-  "/js/vendor/canvas.js",
 
-  // Fonts
-  "/css/fonts/azonix-webfont.woff",
-  "/css/fonts/azonix-webfont.woff2",
+  // Service Worker auxiliar
+  "/sw.js",
+  "/workbox-config.js",
 
-  // Ícones do PWA
+  // Ícones
   "/assets/icons/apple-touch-icon.png",
   "/assets/icons/favicon-96x96.png",
   "/assets/icons/favicon.ico",
   "/assets/icons/favicon.svg",
   "/assets/icons/web-app-manifest-192x192.png",
   "/assets/icons/web-app-manifest-512x512.png",
+  "/assets/icons/site.webmanifest",
 
-  // Assets do jogo (imagens)
+  // Assets social
   "/assets/social/button_facebook.png",
   "/assets/social/button_twitter.png",
   "/assets/social/button_whatsapp.png",
 
+  // Assets do jogo (sons/imagens/botões)
   "/assets/sounds/background.png",
   "/assets/sounds/button_cancel.png",
   "/assets/sounds/button_confirm.png",
@@ -61,7 +68,6 @@ const FILES_TO_CACHE = [
   "/assets/sounds/button_start.png",
   "/assets/sounds/button_twitter.png",
   "/assets/sounds/button_whatsapp.png",
-
   "/assets/sounds/item_ball.png",
   "/assets/sounds/item_bet.png",
   "/assets/sounds/item_bonus.png",
@@ -71,6 +77,9 @@ const FILES_TO_CACHE = [
   "/assets/sounds/item_plinko.png",
   "/assets/sounds/item_result.png",
   "/assets/sounds/item_prize_bonus.png",
+  "/assets/sounds/item_ball_bonus.png",
+  "/assets/sounds/item_droparrow.png",
+  "/assets/sounds/item_droparrow_bonus.png",
   "/assets/sounds/loader.png",
   "/assets/sounds/logo.png",
   "/assets/sounds/rotate.png"
