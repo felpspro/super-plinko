@@ -1,12 +1,15 @@
-const CACHE_NAME = "Felps Super Plinko";
+const CACHE_NAME = "jogo-cache-v1";
+
 const URLS_TO_CACHE = [
   "./",
   "./index.html",
   "assets/style.css",
   "assets/script.js",
   "assets/img1.png",
-  "assets/img2.png"
-  // adicione aqui TODOS os arquivos do jogo que precisam estar offline
+  "assets/img2.png",
+  "assets/icon-192.png",
+  "assets/icon-512.png"
+  // adicione aqui todos os arquivos do jogo
 ];
 
 self.addEventListener("install", event => {
