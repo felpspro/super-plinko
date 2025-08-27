@@ -1,8 +1,8 @@
-const CACHE_NAME = "felps-plinko-v1";
+const CACHE_VERSION = "v3"; // altere sempre que mudar algum arquivo
+const CACHE_NAME = `felps-plinko-${CACHE_VERSION}`;
 
 const FILES_TO_CACHE = [
-  // Raiz
-  "/",
+  "/", 
   "/index.html",
   "/share.php",
   "/icon.ico",
@@ -32,7 +32,7 @@ const FILES_TO_CACHE = [
   "/js/vendor/mobile-detect.js",
   "/js/vendor/p2.min.js",
 
-  // Service Worker auxiliar
+  // SW auxiliar
   "/sw.js",
   "/workbox-config.js",
 
@@ -45,12 +45,12 @@ const FILES_TO_CACHE = [
   "/assets/icons/web-app-manifest-512x512.png",
   "/assets/icons/site.webmanifest",
 
-  // Assets social
+  // Social
   "/assets/social/button_facebook.png",
   "/assets/social/button_twitter.png",
   "/assets/social/button_whatsapp.png",
 
-  // Assets do jogo (sons/imagens/botões)
+  // Sons/imagens
   "/assets/sounds/background.png",
   "/assets/sounds/button_cancel.png",
   "/assets/sounds/button_confirm.png",
@@ -85,37 +85,33 @@ const FILES_TO_CACHE = [
   "/assets/sounds/rotate.png"
 ];
 
-// Instala e adiciona os arquivos ao cache
+// Instala nova versão do cache
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(FILES_TO_CACHE);
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
   );
-  self.skipWaiting();
+  self.skipWaiting(); // força ativação imediata
 });
 
-// Ativa e remove caches antigos
+// Ativa e limpa caches antigos automaticamente
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(
+    caches.keys().then(keys =>
+      Promise.all(
         keys.map(key => {
           if (key !== CACHE_NAME) {
             return caches.delete(key);
           }
         })
-      );
-    })
+      )
+    )
   );
-  self.clients.claim();
+  self.clients.claim(); // aplica imediatamente aos clients abertos
 });
 
-// Intercepta fetch e responde do cache ou da rede
+// Busca primeiro no cache, senão vai na rede
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request).then(response => response || fetch(event.request))
   );
 });
