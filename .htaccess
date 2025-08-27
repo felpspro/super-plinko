@@ -1,0 +1,17 @@
+# Habilita reescrita de URL
+RewriteEngine On
+
+# Evita 403 para sw.js
+<Files "sw.js">
+    Require all granted
+</Files>
+
+# Serve todos os arquivos normalmente
+<FilesMatch "\.(php|html|js|css|json|png|jpg|ico|svg)$">
+    Require all granted
+</FilesMatch>
+
+# Redireciona todas as requisições para index.php (para SPA ou rotas amigáveis)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.php [L,QSA]
