@@ -110,8 +110,27 @@ self.addEventListener("activate", event => {
 });
 
 // Busca primeiro no cache, senão vai na rede
-self.addEventListener("fetch", event => {
+/* self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => response || fetch(event.request))
+  );
+}); */
+
+
+// Busca primeiro no cache, depois rede, e se falhar => carrega index.html offline
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      // se já tem no cache, devolve
+      if (response) return response;
+
+      // tenta pegar da rede
+      return fetch(event.request).catch(() => {
+        // se falhar (offline), sempre abre o jogo
+        if (event.request.mode === "navigate") {
+          return caches.match("/index.html");
+        }
+      });
+    })
   );
 });
