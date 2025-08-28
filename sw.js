@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v5"; // altere sempre que mudar algum arquivo
+const CACHE_VERSION = "v7";
 const CACHE_NAME = `felps-plinko-${CACHE_VERSION}`;
 
 const FILES_TO_CACHE = [
@@ -30,10 +30,6 @@ const FILES_TO_CACHE = [
   "/js/vendor/TweenMax.min.js",
   "/js/vendor/mobile-detect.js",
   "/js/vendor/p2.min.js",
-
-  // SW auxiliar
-  "/sw.js",
-  "/workbox-config.js",
 
   // Ícones
   "/assets/icons/apple-touch-icon.png",
@@ -72,7 +68,7 @@ const FILES_TO_CACHE = [
   "/assets/sounds/sound_score.ogg",
   "/assets/sounds/sound_start.mp3",
   "/assets/sounds/sound_start.ogg",
-  // 
+
   "/assets/background.png",
   "/assets/button_cancel.png",
   "/assets/button_confirm.png",
@@ -107,54 +103,50 @@ const FILES_TO_CACHE = [
   "/assets/rotate.png"
 ];
 
-// Instala nova versão do cache
+// Instala cache
 self.addEventListener("install", event => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
-      for (const file of FILES_TO_CACHE) {
-        try {
-          await cache.add(file);
-        } catch (err) {
-          console.warn("Falhou ao adicionar ao cache:", file, err);
-        }
+      try {
+        await cache.addAll(FILES_TO_CACHE);
+        console.log("[SW] Cache completo instalado");
+      } catch (err) {
+        console.warn("[SW] Erro ao cachear arquivos:", err);
       }
     })()
   );
-  self.skipWaiting(); // força ativação imediata
+  self.skipWaiting();
 });
 
-// Ativa e limpa caches antigos automaticamente
+// Ativa e limpa caches antigos
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
         keys.map(key => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
+          if (key !== CACHE_NAME) return caches.delete(key);
         })
       )
     )
   );
-  self.clients.claim(); // aplica imediatamente aos clients abertos
+  self.clients.claim();
 });
 
-
-// Busca primeiro no cache, depois rede, e se falhar => carrega index.html offline
+// Fetch: cache primeiro, rede depois, fallback index.html
 self.addEventListener("fetch", event => {
   event.respondWith(
     (async () => {
       try {
-        // tenta responder do cache primeiro
+        // Tenta cache
         const cached = await caches.match(event.request);
         if (cached) return cached;
 
-        // tenta rede
+        // Tenta rede
         const response = await fetch(event.request);
         return response;
       } catch (err) {
-        // fallback offline: se for navegação, retorna index.html
+        // Fallback para navegação offline
         if (event.request.mode === "navigate") {
           return caches.match("/index.html");
         }
