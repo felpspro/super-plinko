@@ -19,7 +19,7 @@ RewriteEngine On
 # -----------------------------
 # Permite acesso a arquivos públicos
 # -----------------------------
-<FilesMatch "\.(php|html|js|css|json|png|jpg|ico|svg)$">
+<FilesMatch "\.(php|html|js|css|json|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot|mp3|wav|ogg|mp4|webm)$">
     <IfModule mod_authz_core.c>
         Require all granted
     </IfModule>
