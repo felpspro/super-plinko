@@ -53,6 +53,9 @@ function initPreload() {
     { src: '/assets/social/button_facebook.png', id: 'buttonFacebook' },
     { src: '/assets/social/button_twitter.png', id: 'buttonTwitter' },
     { src: '/assets/social/button_whatsapp.png', id: 'buttonWhatsapp' },
+	{ src: '/assets/social/button_telegram.png', id: 'buttonTelegram' },
+	{ src: '/assets/social/button_reddit.png', id: 'buttonReddit' },
+	{ src: '/assets/social/button_linkedin.png', id: 'buttonLinkedin' },
 
     { src: '/assets/button_continue.png', id: 'buttonContinue' },
     { src: '/assets/item_result.png', id: 'itemResult' },
