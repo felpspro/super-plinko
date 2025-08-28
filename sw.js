@@ -51,7 +51,7 @@ const FILES_TO_CACHE = [
   "/assets/social/button_whatsapp.png",
 
   // Sons/imagens
-  "assets/sounds/,sound_bonus.mp3",
+  "assets/sounds/sound_bonus.mp3",
   "assets/sounds/sound_bonus.ogg",
   "assets/sounds/sound_button.mp3",
   "assets/sounds/sound_button.ogg",
