@@ -4,7 +4,6 @@ const CACHE_NAME = `felps-plinko-${CACHE_VERSION}`;
 const FILES_TO_CACHE = [
   "/", 
   "/index.html",
-  "/share.php",
   "/icon.ico",
   "/share.jpg",
 
