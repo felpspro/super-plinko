@@ -50,28 +50,28 @@ const FILES_TO_CACHE = [
   "/assets/social/button_whatsapp.png",
 
   // Sons/imagens
-  "assets/sounds/sound_bonus.mp3",
-  "assets/sounds/sound_bonus.ogg",
-  "assets/sounds/sound_button.mp3",
-  "assets/sounds/sound_button.ogg",
-  "assets/sounds/sound_chips.mp3",
-  "assets/sounds/sound_chips.ogg",
-  "assets/sounds/sound_coin.mp3",
-  "assets/sounds/sound_coin.ogg",
-  "assets/sounds/sound_hit1.mp3",
-  "assets/sounds/sound_hit1.ogg",
-  "assets/sounds/sound_hit2.mp3",
-  "assets/sounds/sound_hit2.ogg",
-  "assets/sounds/sound_hit3.mp3",
-  "assets/sounds/sound_hit3.ogg",
-  "assets/sounds/sound_nowin.mp3",
-  "assets/sounds/sound_nowin.ogg",
-  "assets/sounds/sound_result.mp3",
-  "assets/sounds/sound_result.ogg",
-  "assets/sounds/sound_score.mp3",
-  "assets/sounds/sound_score.ogg",
-  "assets/sounds/sound_start.mp3",
-  "assets/sounds/sound_start.ogg",
+  "/assets/sounds/sound_bonus.mp3",
+  "/assets/sounds/sound_bonus.ogg",
+  "/assets/sounds/sound_button.mp3",
+  "/assets/sounds/sound_button.ogg",
+  "/assets/sounds/sound_chips.mp3",
+  "/assets/sounds/sound_chips.ogg",
+  "/assets/sounds/sound_coin.mp3",
+  "/assets/sounds/sound_coin.ogg",
+  "/assets/sounds/sound_hit1.mp3",
+  "/assets/sounds/sound_hit1.ogg",
+  "/assets/sounds/sound_hit2.mp3",
+  "/assets/sounds/sound_hit2.ogg",
+  "/assets/sounds/sound_hit3.mp3",
+  "/assets/sounds/sound_hit3.ogg",
+  "/assets/sounds/sound_nowin.mp3",
+  "/assets/sounds/sound_nowin.ogg",
+  "/assets/sounds/sound_result.mp3",
+  "/assets/sounds/sound_result.ogg",
+  "/assets/sounds/sound_score.mp3",
+  "/assets/sounds/sound_score.ogg",
+  "/assets/sounds/sound_start.mp3",
+  "/assets/sounds/sound_start.ogg",
   // 
   "/assets/background.png",
   "/assets/button_cancel.png",
@@ -140,28 +140,25 @@ self.addEventListener("activate", event => {
   self.clients.claim(); // aplica imediatamente aos clients abertos
 });
 
-// Busca primeiro no cache, senão vai na rede
-/* self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
-  );
-}); */
-
 
 // Busca primeiro no cache, depois rede, e se falhar => carrega index.html offline
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      // se já tem no cache, devolve
-      if (response) return response;
+    (async () => {
+      try {
+        // tenta responder do cache primeiro
+        const cached = await caches.match(event.request);
+        if (cached) return cached;
 
-      // tenta pegar da rede
-      return fetch(event.request).catch(() => {
-        // se falhar (offline), sempre abre o jogo
+        // tenta rede
+        const response = await fetch(event.request);
+        return response;
+      } catch (err) {
+        // fallback offline: se for navegação, retorna index.html
         if (event.request.mode === "navigate") {
           return caches.match("/index.html");
         }
-      });
-    })
+      }
+    })()
   );
 });
