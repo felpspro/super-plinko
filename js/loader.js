@@ -81,9 +81,9 @@ function initPreload() {
   // Sons
   if (audioOn) {
     const sounds = [
-      'sound_result', 'soundClick', 'soundStart', 'soundLose',
-      'soundWin', 'soundHit1', 'soundHit2', 'soundHit3',
-      'soundCoin', 'soundChips', 'soundBonus'
+      'sound_result', 'sound_button', 'sound_start', 'sound_nowin',
+      'sound_score', 'sound_hit1', 'sound_hit2', 'sound_hit3',
+      'sound_coin', 'sound_chips', 'sound_bonus'
     ];
     sounds.forEach(s => {
       let src = `/assets/sounds/${s.replace(/([A-Z])/g, m => '_' + m.toLowerCase())}.ogg`;
