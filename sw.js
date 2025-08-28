@@ -88,7 +88,16 @@ const FILES_TO_CACHE = [
 // Instala nova versão do cache
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      for (const file of FILES_TO_CACHE) {
+        try {
+          await cache.add(file);
+        } catch (err) {
+          console.warn("Falhou ao adicionar ao cache:", file, err);
+        }
+      }
+    })()
   );
   self.skipWaiting(); // força ativação imediata
 });
