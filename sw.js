@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v3"; // altere sempre que mudar algum arquivo
+const CACHE_VERSION = "v5"; // altere sempre que mudar algum arquivo
 const CACHE_NAME = `felps-plinko-${CACHE_VERSION}`;
 
 const FILES_TO_CACHE = [
