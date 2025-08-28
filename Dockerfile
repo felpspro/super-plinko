@@ -1,15 +1,8 @@
-# Imagem base
-FROM php:8.2-apache
+# Usa imagem base do Nginx
+FROM nginx:alpine
 
-# Copia o projeto para o diretório padrão do Apache
-COPY . /var/www/html/
+# Copia os arquivos do jogo para a pasta padrão do nginx
+COPY . /usr/share/nginx/html
 
-# Ativa mod_rewrite
-RUN a2enmod rewrite
-
-# Configura permissões
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
-
-# Expõe porta
+# Expõe a porta
 EXPOSE 80
